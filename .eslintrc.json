@@ -1,0 +1,94 @@
+{
+  "root": true,
+  "ignorePatterns": ["**/*"],
+  "plugins": [
+    "@nx",
+    "sonarjs"
+  ],
+  "rules": {
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "external",
+          "builtin",
+          "internal",
+          "sibling",
+          "parent",
+          "index"
+        ],
+        "pathGroups": [
+          {
+            "pattern": "app/**",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "pages/**",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "widgets/**",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "features/**",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "entities/**",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "shared/**",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "**/*.css",
+            "group": "index",
+            "position": "after"
+          }
+        ],
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "rules": {
+        "@nx/enforce-module-boundaries": [
+          "error",
+          {
+            "enforceBuildableLibDependency": true,
+            "allow": [],
+            "depConstraints": [
+              {
+                "sourceTag": "*",
+                "onlyDependOnLibsWithTags": ["*"]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "files": ["*.ts", "*.tsx"],
+      "extends": ["plugin:@nx/typescript"],
+      "rules": {}
+    },
+    {
+      "files": ["*.js", "*.jsx"],
+      "extends": ["plugin:@nx/javascript"],
+      "rules": {}
+    }
+  ]
+}
