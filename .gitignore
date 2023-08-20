@@ -34,6 +34,8 @@ npm-debug.log
 yarn-error.log
 testem.log
 /typings
+files
+apps/api-backend/files
 
 # System Files
 .DS_Store

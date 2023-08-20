@@ -5,6 +5,11 @@
     "@nx",
     "sonarjs"
   ],
+  "extends": [
+    "plugin:import/recommended",
+    "plugin:import/typescript",
+    "plugin:sonarjs/recommended"
+  ],
   "rules": {
     "import/order": [
       "error",
