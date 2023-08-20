@@ -23,7 +23,6 @@ export class ImportController {
     const createImportDto = this.importService.parse(fs.readFileSync(file.path));
 
     const result = await this.importService.create(createImportDto);
-
     const responseDto = new ImportResponseDto();
     responseDto.id = result._id.toString();
     responseDto.records = result.records;
