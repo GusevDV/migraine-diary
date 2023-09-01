@@ -10,6 +10,19 @@
     "plugin:import/typescript",
     "plugin:sonarjs/recommended"
   ],
+  "settings": {
+    "import/resolver": {
+      "typescript": {},
+      "alias": {
+        "map": [
+          [
+            "@",
+            ",./src"
+          ]
+        ]
+      }
+    }
+  },
   "rules": {
     "import/order": [
       "error",
