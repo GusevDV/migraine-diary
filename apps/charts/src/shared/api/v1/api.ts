@@ -3,7 +3,7 @@ import axios from 'axios';
 import { API_V1_URL } from '@/shared/config';
 
 const getImport = async (id: string) => {
-  const { data } = await axios.get(`${API_V1_URL}/posts/${id}`);
+  const { data } = await axios.get(`${API_V1_URL}/imports/${id}`);
   return data;
 };
 
