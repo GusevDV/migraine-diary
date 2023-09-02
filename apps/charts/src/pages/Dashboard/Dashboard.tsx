@@ -13,11 +13,8 @@ const Dashboard = () => {
     }))
     .filter((record: any) => dayjs(record.day).isValid());
 
-  console.log(dataCalendar);
-  console.log(isSuccess);
   return (
     <div>
-      <h1>Dashboard</h1>
       {isSuccess && (
         <div style={{ height: '800px', width: '1300px' }}>
           <ResponsiveCalendar
