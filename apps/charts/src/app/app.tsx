@@ -7,7 +7,7 @@ export function App() {
   return (
     <Routes>
       <Route element={<MainLayout header={<Header />} />}>
-        <Route path={routes.dashboard} element={<Dashboard />} />
+        <Route path={routes.home} element={<Dashboard />} />
       </Route>
     </Routes>
   );
