@@ -49,6 +49,7 @@ export class ImportService {
     try {
       const workSheets = xlsx.parse(buffer, {
         sheets: 0,
+        codepage: 65001,
       });
 
       const workSheetData = workSheets[0].data as Array<Array<string>>;
@@ -57,7 +58,6 @@ export class ImportService {
 
       for (let i = 1; i < workSheetData.length; i++) {
         const [date, , headache] = workSheetData[i];
-
         if (!date || !headache) {
           continue;
         }
@@ -74,7 +74,7 @@ export class ImportService {
         records: preparedData,
       };
     } catch (error) {
-      console.log(error);
+      console.error(error);
       throw new InternalServerErrorException('Error parsing XLSX/CSV data.');
     }
   }
