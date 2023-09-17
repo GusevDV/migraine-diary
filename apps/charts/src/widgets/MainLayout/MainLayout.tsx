@@ -1,17 +1,21 @@
-import { ReactNode } from 'react';
+import { Container } from '@chakra-ui/react';
+import { ReactNode, PropsWithChildren } from 'react';
+import * as React from 'react';
 import { Outlet } from 'react-router-dom';
 
-export type LayoutProps = {
-  header?: ReactNode;
+export type MainLayoutProps = {
+  header?: ReactNode | null;
+  footer?: React.ReactNode | null;
 };
-const MainLayout = ({ header }: LayoutProps) => {
+
+const MainLayout = ({ header }: PropsWithChildren<MainLayoutProps>) => {
   return (
-    <div className="flex flex-col h-full">
-      {header}
-      <main className="container mx-auto">
+    <>
+      {header ?? null}
+      <Container>
         <Outlet />
-      </main>
-    </div>
+      </Container>
+    </>
   );
 };
 
